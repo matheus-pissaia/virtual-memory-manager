@@ -1,7 +1,6 @@
 # Compilador e flags
 CC = gcc
-CFLAGS = -std=c11 -Wall -Wextra -O2
-LDFLAGS = -lncurses
+CFLAGS = -std=c11 -Wall -Wextra
 
 # Diretórios
 SRCDIR = src
@@ -11,14 +10,14 @@ BINDIR = bin
 # Arquivos
 SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
-TARGET = $(BINDIR)/compiled
+TARGET = $(BINDIR)/a.out
 
 # Regras principais
 all: prepare $(TARGET)
 
 # Criação do binário final
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 # Compilação de cada arquivo-fonte
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
