@@ -1,6 +1,7 @@
 #ifdef _WIN32
 #include <windows.h>
 #endif
+#include "windows.h"
 
 /**
  * Enable ANSI escape codes on Windows.

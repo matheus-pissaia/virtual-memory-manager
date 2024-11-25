@@ -1,7 +1,5 @@
 #include <stdio.h>
-
-void moveCursor(int row, int col);
-void clearScreen();
+#include "screen.h"
 
 /**
  * Move the cursor to a specific position on the screen.
