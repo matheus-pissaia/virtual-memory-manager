@@ -11,7 +11,7 @@
  *
  * This function is a no-op if the program is not running on Windows.
  */
-void enableAnsiOnWindows()
+void enable_ansi_on_windows()
 {
 #ifdef _WIN32
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);

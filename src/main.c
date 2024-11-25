@@ -3,7 +3,7 @@
 #include "windows.h"
 
 // Function to get user input
-int getUserInput()
+int get_user_input()
 {
     int input;
     scanf("%d", &input);
@@ -13,9 +13,9 @@ int getUserInput()
 
 int main()
 {
-    enableAnsiOnWindows();
+    enable_ansi_on_windows();
 
-    clearScreen();
+    clear_screen();
 
     printf("Main Menu\n");
     printf("1. Show memory\n");
@@ -23,20 +23,20 @@ int main()
     printf("3. Show page tables\n");
 
     printf("Select an option: ");
-    int input = getUserInput();
+    int input = get_user_input();
 
     switch (input)
     {
     case 1:
-        clearScreen();
+        clear_screen();
         printf("Option 1 selected\n");
         break;
     case 2:
-        clearScreen();
+        clear_screen();
         printf("Option 2 selected\n");
         break;
     case 3:
-        clearScreen();
+        clear_screen();
         printf("Option 3 selected\n");
         break;
     default:

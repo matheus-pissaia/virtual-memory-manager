@@ -1,7 +1,7 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
-void moveCursor(int row, int col);
-void clearScreen();
+void move_cursor(int row, int col);
+void clear_screen();
 
 #endif

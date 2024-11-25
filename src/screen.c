@@ -6,7 +6,7 @@
  * @param row The row to move the cursor to
  * @param col The column to move the cursor to
  */
-void moveCursor(int row, int col)
+void move_cursor(int row, int col)
 {
     printf("\033[%d;%dH", row, col);
 }
@@ -16,7 +16,7 @@ void moveCursor(int row, int col)
  *
  * ANSI escape code to clear the screen.
  */
-void clearScreen()
+void clear_screen()
 {
     printf("\033[2J");
 }
