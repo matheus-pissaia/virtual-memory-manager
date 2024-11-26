@@ -10,6 +10,8 @@ typedef struct
     int free_frames;      // Empty frames counter.
 } Memory;
 
+Memory *get_memory();
+
 void init_memory();
 void view_memory_usage();
 

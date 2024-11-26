@@ -5,7 +5,12 @@
 #include "screen.h"
 #include "input.h"
 
-Memory memory;
+static Memory memory;
+
+Memory *get_memory()
+{
+    return &memory;
+}
 
 void init_memory()
 {
