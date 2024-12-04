@@ -31,7 +31,7 @@ void init_memory()
 
     memory.frame_size = frame_size;
     memory.total_frames = memory_size / frame_size;
-    memory.frames = (int *)calloc(memory.total_frames, sizeof(int)); // Corrigido aqui
+    memory.frames = (int *)calloc(memory.total_frames, sizeof(int));
     memory.frame_occupied = (bool *)calloc(memory.total_frames, sizeof(bool));
     memory.free_frames = memory.total_frames;
 }
