@@ -1,5 +1,7 @@
 #ifndef MEMORY_H
 #define MEMORY_H
+#include <stdbool.h>
+
 
 typedef struct
 {
@@ -10,9 +12,10 @@ typedef struct
     int free_frames;      // Empty frames counter.
 } Memory;
 
-Memory *get_memory();
+extern Memory memory;
 
 void init_memory();
 void view_memory_usage();
+Memory *get_memory();
 
 #endif

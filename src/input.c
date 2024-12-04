@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "input.h"
 
 /**
  * Reads an integer from the user and returns it.
@@ -8,7 +9,24 @@
 int get_user_input()
 {
     int input;
-    scanf("%d", &input);
+    int result;
 
-    return input;
+    while (1)
+    {
+        result = scanf("%d", &input);
+        if (result == 1)
+        {
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF)
+                ;
+            return input;
+        }
+        else
+        {
+            printf("Invalid input. Please enter a valid integer: ");
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF)
+                ;
+        }
+    }
 }
