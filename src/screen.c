@@ -20,10 +20,3 @@ void clear_screen()
 {
     printf("\033[2J");
 }
-
-void wait_for_enter()
-{
-    printf("Press Enter to continue...");
-    fflush(stdout);
-    while (getchar() != '\n');
-}

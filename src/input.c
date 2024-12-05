@@ -30,3 +30,11 @@ int get_user_input()
         }
     }
 }
+
+
+void wait_for_enter()
+{
+    printf("Press Enter to continue...");
+    fflush(stdout);
+    while (getchar() != '\n');
+}
