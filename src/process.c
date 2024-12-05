@@ -12,35 +12,71 @@ Process processes[MAX_PROCESSES];
 void create_process()
 {
     clear_screen();
+    int process_id;
 
-    printf("Enter the process ID: ");
-    int process_id = get_user_input();
-
-    printf("Enter the size of the process (in bytes): ");
-    int process_size = get_user_input();
-
-    if (num_processes >= MAX_PROCESSES)
+    // Loop para garantir que um ID de processo único seja inserido
+    while (1)
     {
-        printf("Maximum number of processes reached.\n");
-        return;
+        printf("Enter the process ID: ");
+        process_id = get_user_input();
+
+        // Verifica se o ID do processo já existe
+        bool id_exists = false;
+        for (int i = 0; i < num_processes; i++)
+        {
+            if (processes[i].process_id == process_id)
+            {
+                id_exists = true;
+                break;
+            }
+        }
+
+        if (id_exists)
+        {
+            printf("Error: A process with ID %d already exists. Please enter a unique process ID.\n", process_id);
+        }
+        else
+        {
+            // ID único encontrado, sai do loop
+            break;
+        }
     }
 
     Memory *memory = get_memory();
 
-    if (process_size % memory->frame_size != 0)
+    int process_size;
+    int num_pages;
+
+    while (1)
     {
-        printf("The process size must be a multiple of the frame size (%d).\n", memory->frame_size);
+        printf("Enter the size of the process (in bytes): ");
+        process_size = get_user_input();
+
+        if (process_size <= 0)
+        {
+            printf("Error: The process size must be greater than zero.\n");
+            continue;
+        }
+
+        num_pages = (process_size + memory->frame_size - 1) / memory->frame_size;
+
+        if (num_pages > memory->free_frames)
+        {
+            printf("Insufficient memory to allocate the process. Available memory: %d bytes.\n", memory->free_frames * memory->frame_size);
+            continue;
+        }
+
+        break;
+    }
+
+    if (num_processes >= MAX_PROCESSES)
+    {
+        printf("Maximum number of processes reached.\n");
+        wait_for_enter();
         return;
     }
 
-    int num_pages = process_size / memory->frame_size;
-
-    if (num_pages > memory->free_frames)
-    {
-        printf("Insufficient memory to alocate the process.\n");
-        return;
-    }
-
+    // Prossegue com a criação do processo
     Process *p = &processes[num_processes++];
     p->process_id = process_id;
     p->process_size = process_size;
@@ -56,5 +92,7 @@ void create_process()
             p->page_table[allocated_pages++] = i;
         }
     }
+
     printf("Process %d created with %d pages.\n", process_id, num_pages);
+    wait_for_enter();
 }

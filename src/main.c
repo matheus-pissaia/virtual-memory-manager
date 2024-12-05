@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include "input.h"
 #include "screen.h"
 #include "windows.h"
@@ -48,6 +47,7 @@ int main()
             break;
         default:
             printf("Invalid option!\n");
+            wait_for_enter();
             break;
         }
     } while (option != 4);

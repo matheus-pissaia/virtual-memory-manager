@@ -5,7 +5,7 @@
 #include "screen.h"
 #include "input.h"
 
-static Memory memory;
+Memory memory;
 
 Memory *get_memory()
 {
@@ -31,7 +31,7 @@ void init_memory()
 
     memory.frame_size = frame_size;
     memory.total_frames = memory_size / frame_size;
-    memory.frames = (int *)calloc(memory_size, sizeof(int));
+    memory.frames = (int *)calloc(memory.total_frames, sizeof(int));
     memory.frame_occupied = (bool *)calloc(memory.total_frames, sizeof(bool));
     memory.free_frames = memory.total_frames;
 }
@@ -47,6 +47,5 @@ void view_memory_usage()
         printf("Frame %d: %s\n", i, memory.frame_occupied[i] ? "occupied" : "empty");
     }
 
-    printf("Press any key to go back...");
-    get_user_input();
+    wait_for_enter();
 }

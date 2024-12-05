@@ -3,5 +3,6 @@
 
 void move_cursor(int row, int col);
 void clear_screen();
+void wait_for_enter();
 
 #endif
