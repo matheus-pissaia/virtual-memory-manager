@@ -96,3 +96,15 @@ void create_process()
     printf("Process %d created with %d pages.\n", process_id, num_pages);
     wait_for_enter();
 }
+
+Process *get_process_by_id(int process_id)
+{
+    for (int i = 0; i < num_processes; i++)
+    {
+        if (processes[i].process_id == process_id)
+        {
+            return &processes[i];
+        }
+    }
+    return NULL;
+}

@@ -3,6 +3,8 @@
 
 #define MAX_PROCESSES 100
 
+extern int num_processes;
+
 typedef struct
 {
     int process_id;
@@ -12,5 +14,6 @@ typedef struct
 } Process;
 
 void create_process();
+Process *get_process_by_id(int process_id);
 
 #endif

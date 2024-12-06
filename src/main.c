@@ -4,6 +4,7 @@
 #include "windows.h"
 #include "memory.h"
 #include "process.h"
+#include "pageTables.h"
 
 void show_main_menu()
 {
@@ -39,8 +40,7 @@ int main()
             create_process();
             break;
         case 3:
-            clear_screen();
-            printf("TODO: Implement page tables\n");
+            view_page_tables();
             break;
         case 4:
             printf("Bye bye\n");
