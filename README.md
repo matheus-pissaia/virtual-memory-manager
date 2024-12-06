@@ -13,8 +13,3 @@ From the root folder, run `make` in your terminal to compile the code.
 ### 2. Execute
 
 From the root folder, run `./bin/a.out` in your terminal to execute the compiled code.
-
-# TODOs
-
-- [ ] Generate cross-platform `make` files (Python, Bazel, CMake...).
-- [ ] Make interface for each menu options.
