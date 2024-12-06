@@ -14,6 +14,8 @@ Memory *get_memory()
 
 void init_memory()
 {
+    clear_screen();
+
     printf("Configuração inicial:\n");
     printf("Informe o tamanho da memória física (em bytes): ");
 
